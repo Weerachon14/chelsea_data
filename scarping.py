@@ -22,16 +22,14 @@ def scarping_data():
     }
 
     response = requests.get('https://www.fotmob.com/api/data/matchDetails', params=params, headers=headers)
-    # print(response.status_code)
+
     match_detail = response.json()
     filename = "chelsea_benfica.json"
 
     save_data(match_detail,filename)
 
-    print(match_detail)
-
 def save_data(data, filename):
-    folder_path="/mnt/d/Football_data/chelsea_data"
+    folder_path="/mnt/d/Football_data/chelsea_data/data"
     os.makedirs(folder_path, exist_ok=True)
     file_path = os.path.join(folder_path, filename)
 
